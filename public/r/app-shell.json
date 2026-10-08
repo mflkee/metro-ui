@@ -1,0 +1,25 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "app-shell",
+  "title": "App shell",
+  "description": "Sidebar + topbar + content layout built on the shadcn sidebar primitive.",
+  "dependencies": [
+    "lucide-react",
+    "react-router-dom"
+  ],
+  "registryDependencies": [
+    "sidebar",
+    "button",
+    "separator",
+    "tooltip"
+  ],
+  "files": [
+    {
+      "path": "registry/app-shell/app-shell.tsx",
+      "content": "import type { ComponentType, ReactNode } from \"react\"\nimport { NavLink, Outlet, useLocation } from \"react-router-dom\"\nimport {\n  Sidebar,\n  SidebarContent,\n  SidebarFooter,\n  SidebarGroup,\n  SidebarGroupContent,\n  SidebarGroupLabel,\n  SidebarHeader,\n  SidebarInset,\n  SidebarMenu,\n  SidebarMenuButton,\n  SidebarMenuItem,\n  SidebarProvider,\n  SidebarTrigger,\n} from \"@/components/ui/sidebar\"\nimport { Separator } from \"@/components/ui/separator\"\n\nexport interface NavItem {\n  to: string\n  label: string\n  icon?: ComponentType<{ className?: string }>\n  /** Match the path exactly (use for the index route). */\n  end?: boolean\n}\n\nexport interface NavSection {\n  label?: string\n  items: NavItem[]\n}\n\ntype Nav = NavItem[] | NavSection[]\n\nfunction isSections(nav: Nav): nav is NavSection[] {\n  return nav.length > 0 && \"items\" in (nav[0] as object)\n}\n\n/**\n * Opinionated application shell for the metro fleet: shadcn sidebar + topbar\n * + scrolling content area. Mount it as a react-router layout route and render\n * pages into the <Outlet />, or pass children explicitly.\n */\nexport function AppShell({\n  brand,\n  nav,\n  footer,\n  topbarActions,\n  children,\n}: {\n  brand: ReactNode\n  nav: Nav\n  footer?: ReactNode\n  topbarActions?: ReactNode\n  children?: ReactNode\n}) {\n  const { pathname } = useLocation()\n  const sections: NavSection[] = isSections(nav) ? nav : [{ items: nav as NavItem[] }]\n\n  return (\n    <SidebarProvider>\n      <Sidebar>\n        <SidebarHeader>\n          <div className=\"flex items-center gap-2.5 px-2 py-1.5\">{brand}</div>\n        </SidebarHeader>\n        <SidebarContent>\n          {sections.map((section, index) => (\n            <SidebarGroup key={section.label ?? index}>\n              {section.label ? <SidebarGroupLabel>{section.label}</SidebarGroupLabel> : null}\n              <SidebarGroupContent>\n                <SidebarMenu>\n                  {section.items.map((item) => {\n                    const exact = item.end ?? item.to === \"/\"\n                    const active = exact ? pathname === item.to : pathname.startsWith(item.to)\n                    return (\n                      <SidebarMenuItem key={item.to}>\n                        <SidebarMenuButton asChild isActive={active} tooltip={item.label}>\n                          <NavLink to={item.to} end={item.end ?? item.to === \"/\"}>\n                            {item.icon ? <item.icon className=\"size-4\" /> : null}\n                            <span>{item.label}</span>\n                          </NavLink>\n                        </SidebarMenuButton>\n                      </SidebarMenuItem>\n                    )\n                  })}\n                </SidebarMenu>\n              </SidebarGroupContent>\n            </SidebarGroup>\n          ))}\n        </SidebarContent>\n        {footer ? <SidebarFooter>{footer}</SidebarFooter> : null}\n      </Sidebar>\n      <SidebarInset>\n        <header className=\"flex h-14 shrink-0 items-center gap-2 border-b px-4\">\n          <SidebarTrigger className=\"-ml-1\" />\n          <Separator orientation=\"vertical\" className=\"mr-2 !h-4\" />\n          <div className=\"ml-auto flex items-center gap-2\">{topbarActions}</div>\n        </header>\n        <main className=\"flex-1 p-4 md:p-6 lg:p-8\">{children ?? <Outlet />}</main>\n      </SidebarInset>\n    </SidebarProvider>\n  )\n}\n",
+      "type": "registry:block",
+      "target": "@components/app-shell.tsx"
+    }
+  ],
+  "type": "registry:block"
+}

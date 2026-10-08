@@ -1,0 +1,14 @@
+{
+  "name": "metro-ui",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Shared shadcn/ui design system (registry) for the metro* services",
+  "scripts": {
+    "build": "shadcn build",
+    "view": "shadcn view"
+  },
+  "devDependencies": {
+    "shadcn": "^4.21.4"
+  }
+}

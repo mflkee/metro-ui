@@ -1,0 +1,18 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "theme-provider",
+  "title": "Theme provider",
+  "description": "next-themes provider with class strategy (light/dark/system).",
+  "dependencies": [
+    "next-themes"
+  ],
+  "files": [
+    {
+      "path": "registry/theme-provider/theme-provider.tsx",
+      "content": "import type { ComponentProps } from \"react\"\nimport { ThemeProvider as NextThemesProvider } from \"next-themes\"\n\n/**\n * Class-strategy theme provider. Put `<html class=\"dark\">` toggling in the hands\n * of next-themes: it sets `.dark` on <html> and keeps it in sync with storage\n * and the OS preference.\n */\nexport function ThemeProvider({ children, ...props }: ComponentProps<typeof NextThemesProvider>) {\n  return (\n    <NextThemesProvider\n      attribute=\"class\"\n      defaultTheme=\"system\"\n      enableSystem\n      disableTransitionOnChange\n      {...props}\n    >\n      {children}\n    </NextThemesProvider>\n  )\n}\n",
+      "type": "registry:component",
+      "target": "@components/theme-provider.tsx"
+    }
+  ],
+  "type": "registry:component"
+}

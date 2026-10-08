@@ -1,0 +1,193 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry.json",
+  "name": "metro",
+  "homepage": "https://github.com/mflkee/metro-ui",
+  "items": [
+    {
+      "name": "metro-theme",
+      "type": "registry:theme",
+      "title": "Metro theme",
+      "description": "Brand design tokens for the metro fleet: light + dark, Geist font, semantic colors.",
+      "dependencies": ["@fontsource-variable/geist"],
+      "cssVars": {
+        "theme": {
+          "--font-sans": "'Geist Variable', sans-serif",
+          "--color-success": "var(--success)",
+          "--color-success-foreground": "var(--success-foreground)",
+          "--color-warning": "var(--warning)",
+          "--color-warning-foreground": "var(--warning-foreground)",
+          "--color-info": "var(--info)",
+          "--color-info-foreground": "var(--info-foreground)"
+        },
+        "light": {
+          "--background": "oklch(1 0 0)",
+          "--foreground": "oklch(0.145 0 0)",
+          "--card": "oklch(1 0 0)",
+          "--card-foreground": "oklch(0.145 0 0)",
+          "--popover": "oklch(1 0 0)",
+          "--popover-foreground": "oklch(0.145 0 0)",
+          "--primary": "oklch(0.52 0.17 255)",
+          "--primary-foreground": "oklch(0.985 0 0)",
+          "--secondary": "oklch(0.97 0 0)",
+          "--secondary-foreground": "oklch(0.205 0 0)",
+          "--muted": "oklch(0.97 0 0)",
+          "--muted-foreground": "oklch(0.556 0 0)",
+          "--accent": "oklch(0.955 0.012 255)",
+          "--accent-foreground": "oklch(0.205 0 0)",
+          "--destructive": "oklch(0.577 0.245 27.325)",
+          "--destructive-foreground": "oklch(0.985 0 0)",
+          "--success": "oklch(0.6 0.132 156)",
+          "--success-foreground": "oklch(0.985 0 0)",
+          "--warning": "oklch(0.74 0.152 78)",
+          "--warning-foreground": "oklch(0.2 0 0)",
+          "--info": "oklch(0.58 0.132 240)",
+          "--info-foreground": "oklch(0.985 0 0)",
+          "--border": "oklch(0.922 0 0)",
+          "--input": "oklch(0.922 0 0)",
+          "--ring": "oklch(0.52 0.17 255)",
+          "--chart-1": "oklch(0.52 0.17 255)",
+          "--chart-2": "oklch(0.6 0.132 156)",
+          "--chart-3": "oklch(0.74 0.152 78)",
+          "--chart-4": "oklch(0.58 0.13 300)",
+          "--chart-5": "oklch(0.65 0.15 25)",
+          "--radius": "0.625rem",
+          "--sidebar": "oklch(0.985 0 0)",
+          "--sidebar-foreground": "oklch(0.145 0 0)",
+          "--sidebar-primary": "oklch(0.52 0.17 255)",
+          "--sidebar-primary-foreground": "oklch(0.985 0 0)",
+          "--sidebar-accent": "oklch(0.955 0.012 255)",
+          "--sidebar-accent-foreground": "oklch(0.205 0 0)",
+          "--sidebar-border": "oklch(0.922 0 0)",
+          "--sidebar-ring": "oklch(0.52 0.17 255)"
+        },
+        "dark": {
+          "--background": "oklch(0.145 0 0)",
+          "--foreground": "oklch(0.985 0 0)",
+          "--card": "oklch(0.205 0 0)",
+          "--card-foreground": "oklch(0.985 0 0)",
+          "--popover": "oklch(0.205 0 0)",
+          "--popover-foreground": "oklch(0.985 0 0)",
+          "--primary": "oklch(0.68 0.15 255)",
+          "--primary-foreground": "oklch(0.145 0 0)",
+          "--secondary": "oklch(0.269 0 0)",
+          "--secondary-foreground": "oklch(0.985 0 0)",
+          "--muted": "oklch(0.269 0 0)",
+          "--muted-foreground": "oklch(0.708 0 0)",
+          "--accent": "oklch(0.3 0.022 255)",
+          "--accent-foreground": "oklch(0.985 0 0)",
+          "--destructive": "oklch(0.704 0.191 22.216)",
+          "--destructive-foreground": "oklch(0.985 0 0)",
+          "--success": "oklch(0.72 0.14 156)",
+          "--success-foreground": "oklch(0.145 0 0)",
+          "--warning": "oklch(0.8 0.15 80)",
+          "--warning-foreground": "oklch(0.145 0 0)",
+          "--info": "oklch(0.7 0.13 240)",
+          "--info-foreground": "oklch(0.145 0 0)",
+          "--border": "oklch(1 0 0 / 10%)",
+          "--input": "oklch(1 0 0 / 15%)",
+          "--ring": "oklch(0.68 0.15 255)",
+          "--chart-1": "oklch(0.68 0.15 255)",
+          "--chart-2": "oklch(0.72 0.14 156)",
+          "--chart-3": "oklch(0.8 0.15 80)",
+          "--chart-4": "oklch(0.68 0.14 300)",
+          "--chart-5": "oklch(0.7 0.15 25)",
+          "--radius": "0.625rem",
+          "--sidebar": "oklch(0.205 0 0)",
+          "--sidebar-foreground": "oklch(0.985 0 0)",
+          "--sidebar-primary": "oklch(0.68 0.15 255)",
+          "--sidebar-primary-foreground": "oklch(0.145 0 0)",
+          "--sidebar-accent": "oklch(0.3 0.022 255)",
+          "--sidebar-accent-foreground": "oklch(0.985 0 0)",
+          "--sidebar-border": "oklch(1 0 0 / 10%)",
+          "--sidebar-ring": "oklch(0.68 0.15 255)"
+        }
+      }
+    },
+    {
+      "name": "theme-provider",
+      "type": "registry:component",
+      "title": "Theme provider",
+      "description": "next-themes provider with class strategy (light/dark/system).",
+      "dependencies": ["next-themes"],
+      "files": [
+        {
+          "path": "registry/theme-provider/theme-provider.tsx",
+          "type": "registry:component",
+          "target": "@components/theme-provider.tsx"
+        }
+      ]
+    },
+    {
+      "name": "theme-toggle",
+      "type": "registry:component",
+      "title": "Theme toggle",
+      "description": "Light / dark / system switcher.",
+      "dependencies": ["next-themes", "lucide-react"],
+      "registryDependencies": ["button", "dropdown-menu"],
+      "files": [
+        {
+          "path": "registry/theme-toggle/theme-toggle.tsx",
+          "type": "registry:component",
+          "target": "@components/theme-toggle.tsx"
+        }
+      ]
+    },
+    {
+      "name": "status-badge",
+      "type": "registry:component",
+      "title": "Status badge",
+      "description": "Tone-based status badge built on semantic theme tokens.",
+      "dependencies": ["class-variance-authority"],
+      "registryDependencies": ["badge"],
+      "files": [
+        {
+          "path": "registry/status-badge/status-badge.tsx",
+          "type": "registry:component",
+          "target": "@components/status-badge.tsx"
+        }
+      ]
+    },
+    {
+      "name": "stat-card",
+      "type": "registry:component",
+      "title": "Stat card",
+      "description": "Metric card for dashboards.",
+      "registryDependencies": ["card"],
+      "files": [
+        {
+          "path": "registry/stat-card/stat-card.tsx",
+          "type": "registry:component",
+          "target": "@components/stat-card.tsx"
+        }
+      ]
+    },
+    {
+      "name": "page-header",
+      "type": "registry:component",
+      "title": "Page header",
+      "description": "Page title, description and action slot.",
+      "files": [
+        {
+          "path": "registry/page-header/page-header.tsx",
+          "type": "registry:component",
+          "target": "@components/page-header.tsx"
+        }
+      ]
+    },
+    {
+      "name": "app-shell",
+      "type": "registry:block",
+      "title": "App shell",
+      "description": "Sidebar + topbar + content layout built on the shadcn sidebar primitive.",
+      "dependencies": ["lucide-react", "react-router-dom"],
+      "registryDependencies": ["sidebar", "button", "separator", "tooltip"],
+      "files": [
+        {
+          "path": "registry/app-shell/app-shell.tsx",
+          "type": "registry:block",
+          "target": "@components/app-shell.tsx"
+        }
+      ]
+    }
+  ]
+}

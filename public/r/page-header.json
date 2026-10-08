@@ -1,0 +1,15 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "page-header",
+  "title": "Page header",
+  "description": "Page title, description and action slot.",
+  "files": [
+    {
+      "path": "registry/page-header/page-header.tsx",
+      "content": "import type { ReactNode } from \"react\"\nimport { cn } from \"@/lib/utils\"\n\nexport function PageHeader({\n  title,\n  description,\n  actions,\n  className,\n}: {\n  title: ReactNode\n  description?: ReactNode\n  actions?: ReactNode\n  className?: string\n}) {\n  return (\n    <header className={cn(\"flex flex-wrap items-start justify-between gap-4\", className)}>\n      <div className=\"min-w-0\">\n        <h2 className=\"text-2xl font-bold\">{title}</h2>\n        {description ? (\n          <p className=\"text-sm text-muted-foreground\">{description}</p>\n        ) : null}\n      </div>\n      {actions ? <div className=\"flex items-center gap-2\">{actions}</div> : null}\n    </header>\n  )\n}\n",
+      "type": "registry:component",
+      "target": "@components/page-header.tsx"
+    }
+  ],
+  "type": "registry:component"
+}

@@ -1,0 +1,18 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "stat-card",
+  "title": "Stat card",
+  "description": "Metric card for dashboards.",
+  "registryDependencies": [
+    "card"
+  ],
+  "files": [
+    {
+      "path": "registry/stat-card/stat-card.tsx",
+      "content": "import type { ComponentType, ReactNode } from \"react\"\nimport { Card, CardContent } from \"@/components/ui/card\"\nimport { cn } from \"@/lib/utils\"\nimport type { StatusTone } from \"@/components/status-badge\"\n\nconst TONE_TEXT: Record<StatusTone, string> = {\n  neutral: \"text-foreground\",\n  primary: \"text-primary\",\n  info: \"text-info\",\n  success: \"text-success\",\n  warning: \"text-warning\",\n  danger: \"text-destructive\",\n}\n\nexport function StatCard({\n  label,\n  value,\n  hint,\n  icon: Icon,\n  tone = \"neutral\",\n  className,\n}: {\n  label: string\n  value: ReactNode\n  hint?: ReactNode\n  icon?: ComponentType<{ className?: string }>\n  tone?: StatusTone\n  className?: string\n}) {\n  return (\n    <Card className={cn(\"gap-0 transition-colors hover:ring-foreground/20\", className)}>\n      <CardContent className=\"flex items-start justify-between gap-3\">\n        <div className=\"min-w-0\">\n          <div className={cn(\"text-3xl leading-tight font-bold\", TONE_TEXT[tone])}>{value}</div>\n          <div className=\"mt-0.5 text-xs text-muted-foreground\">{label}</div>\n          {hint ? <div className=\"mt-1 text-xs text-muted-foreground/80\">{hint}</div> : null}\n        </div>\n        {Icon ? <Icon className=\"size-5 shrink-0 text-muted-foreground\" /> : null}\n      </CardContent>\n    </Card>\n  )\n}\n",
+      "type": "registry:component",
+      "target": "@components/stat-card.tsx"
+    }
+  ],
+  "type": "registry:component"
+}
