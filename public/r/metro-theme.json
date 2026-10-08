@@ -14,7 +14,9 @@
       "color-warning": "var(--warning)",
       "color-warning-foreground": "var(--warning-foreground)",
       "color-info": "var(--info)",
-      "color-info-foreground": "var(--info-foreground)"
+      "color-info-foreground": "var(--info-foreground)",
+      "radius": "0.625rem",
+      "color-destructive-foreground": "var(--destructive-foreground)"
     },
     "light": {
       "background": "oklch(1 0 0)",
