@@ -39,7 +39,7 @@
       "title": "Theme switcher",
       "description": "The fleet theme picker (a small menu, not a shadcn dropdown), identical in every service.",
       "registryDependencies": [
-        "theme-store"
+        "@metro/theme-store"
       ],
       "files": [
         {
@@ -141,7 +141,7 @@
         "radix-ui"
       ],
       "registryDependencies": [
-        "utils"
+        "@metro/utils"
       ],
       "files": [
         {
@@ -161,7 +161,7 @@
         "radix-ui"
       ],
       "registryDependencies": [
-        "utils"
+        "@metro/utils"
       ],
       "files": [
         {
@@ -180,7 +180,7 @@
         "radix-ui"
       ],
       "registryDependencies": [
-        "utils"
+        "@metro/utils"
       ],
       "files": [
         {
@@ -199,7 +199,7 @@
         "radix-ui"
       ],
       "registryDependencies": [
-        "utils"
+        "@metro/utils"
       ],
       "files": [
         {
@@ -219,8 +219,8 @@
         "lucide-react"
       ],
       "registryDependencies": [
-        "utils",
-        "button"
+        "@metro/utils",
+        "@metro/button"
       ],
       "files": [
         {
@@ -236,8 +236,8 @@
       "title": "App dialog",
       "description": "The app's own shell over the dialog: title, body, footer and the dismissal contract.",
       "registryDependencies": [
-        "dialog",
-        "icon-action-button"
+        "@metro/dialog",
+        "@metro/icon-action-button"
       ],
       "files": [
         {
@@ -253,7 +253,7 @@
       "title": "Select",
       "description": "The fleet's single-choice list — never a native <select> (that opens an OS popup).",
       "registryDependencies": [
-        "floating-autocomplete-menu"
+        "@metro/floating-autocomplete-menu"
       ],
       "files": [
         {
@@ -269,7 +269,7 @@
       "title": "Searchable select",
       "description": "Single/multi select with chips, keyboard navigation, a results cap and optional query history.",
       "registryDependencies": [
-        "floating-autocomplete-menu"
+        "@metro/floating-autocomplete-menu"
       ],
       "files": [
         {
@@ -302,7 +302,7 @@
       "title": "Number input",
       "description": "The numeric field: a text input with inputMode=numeric and a digits-only filter, not type=number.",
       "registryDependencies": [
-        "numeric-input"
+        "@metro/numeric-input"
       ],
       "files": [
         {
@@ -318,7 +318,7 @@
       "title": "Mention text",
       "description": "Renders message and comment text with mentions highlighted by the theme token.",
       "registryDependencies": [
-        "mentions"
+        "@metro/mentions"
       ],
       "files": [
         {
@@ -337,8 +337,8 @@
         "class-variance-authority"
       ],
       "registryDependencies": [
-        "badge",
-        "utils"
+        "@metro/badge",
+        "@metro/utils"
       ],
       "files": [
         {
@@ -354,9 +354,9 @@
       "title": "Stat card",
       "description": "Metric card for dashboards.",
       "registryDependencies": [
-        "card",
-        "status-badge",
-        "utils"
+        "@metro/card",
+        "@metro/status-badge",
+        "@metro/utils"
       ],
       "files": [
         {
@@ -372,7 +372,7 @@
       "title": "Page header",
       "description": "Page title, description and action slot.",
       "registryDependencies": [
-        "utils"
+        "@metro/utils"
       ],
       "files": [
         {

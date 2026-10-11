@@ -4,7 +4,7 @@
   "title": "Number input",
   "description": "The numeric field: a text input with inputMode=numeric and a digits-only filter, not type=number.",
   "registryDependencies": [
-    "numeric-input"
+    "@metro/numeric-input"
   ],
   "files": [
     {

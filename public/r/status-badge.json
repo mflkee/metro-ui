@@ -7,8 +7,8 @@
     "class-variance-authority"
   ],
   "registryDependencies": [
-    "badge",
-    "utils"
+    "@metro/badge",
+    "@metro/utils"
   ],
   "files": [
     {

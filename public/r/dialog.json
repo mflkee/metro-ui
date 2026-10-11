@@ -8,8 +8,8 @@
     "lucide-react"
   ],
   "registryDependencies": [
-    "utils",
-    "button"
+    "@metro/utils",
+    "@metro/button"
   ],
   "files": [
     {

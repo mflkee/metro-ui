@@ -4,7 +4,7 @@
   "title": "Select",
   "description": "The fleet's single-choice list — never a native <select> (that opens an OS popup).",
   "registryDependencies": [
-    "floating-autocomplete-menu"
+    "@metro/floating-autocomplete-menu"
   ],
   "files": [
     {

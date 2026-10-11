@@ -4,8 +4,8 @@
   "title": "App dialog",
   "description": "The app's own shell over the dialog: title, body, footer and the dismissal contract.",
   "registryDependencies": [
-    "dialog",
-    "icon-action-button"
+    "@metro/dialog",
+    "@metro/icon-action-button"
   ],
   "files": [
     {

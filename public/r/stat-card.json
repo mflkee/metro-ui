@@ -4,9 +4,9 @@
   "title": "Stat card",
   "description": "Metric card for dashboards.",
   "registryDependencies": [
-    "card",
-    "status-badge",
-    "utils"
+    "@metro/card",
+    "@metro/status-badge",
+    "@metro/utils"
   ],
   "files": [
     {

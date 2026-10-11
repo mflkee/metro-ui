@@ -4,7 +4,7 @@
   "title": "Searchable select",
   "description": "Single/multi select with chips, keyboard navigation, a results cap and optional query history.",
   "registryDependencies": [
-    "floating-autocomplete-menu"
+    "@metro/floating-autocomplete-menu"
   ],
   "files": [
     {

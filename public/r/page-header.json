@@ -4,7 +4,7 @@
   "title": "Page header",
   "description": "Page title, description and action slot.",
   "registryDependencies": [
-    "utils"
+    "@metro/utils"
   ],
   "files": [
     {

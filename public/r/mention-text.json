@@ -4,7 +4,7 @@
   "title": "Mention text",
   "description": "Renders message and comment text with mentions highlighted by the theme token.",
   "registryDependencies": [
-    "mentions"
+    "@metro/mentions"
   ],
   "files": [
     {

@@ -4,7 +4,7 @@
   "title": "Theme switcher",
   "description": "The fleet theme picker (a small menu, not a shadcn dropdown), identical in every service.",
   "registryDependencies": [
-    "theme-store"
+    "@metro/theme-store"
   ],
   "files": [
     {
