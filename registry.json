@@ -362,6 +362,32 @@
       ]
     },
     {
+      "name": "empty-state",
+      "type": "registry:component",
+      "title": "Empty state",
+      "description": "The fleet empty state: icon, title, description and an optional action, the same in every list.",
+      "files": [
+        {
+          "path": "registry/empty-state/empty-state.tsx",
+          "type": "registry:component",
+          "target": "@components/ui/empty-state.tsx"
+        }
+      ]
+    },
+    {
+      "name": "progress",
+      "type": "registry:component",
+      "title": "Progress",
+      "description": "The fleet progress bar: a track and a fill on the theme's accent, with an optional label and value.",
+      "files": [
+        {
+          "path": "registry/progress/progress.tsx",
+          "type": "registry:component",
+          "target": "@components/ui/progress.tsx"
+        }
+      ]
+    },
+    {
       "name": "stat-card",
       "type": "registry:component",
       "title": "Stat card",

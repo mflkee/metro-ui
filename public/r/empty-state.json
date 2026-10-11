@@ -1,0 +1,15 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "empty-state",
+  "title": "Empty state",
+  "description": "The fleet empty state: icon, title, description and an optional action, the same in every list.",
+  "files": [
+    {
+      "path": "registry/empty-state/empty-state.tsx",
+      "content": "import type { ReactNode } from \"react\"\n\n/**\n * The fleet empty state: what a list shows when it has nothing to show. One shape\n * everywhere, so an empty queue, an empty history and an empty folder look alike.\n */\nexport function EmptyState({\n  icon,\n  title,\n  description,\n  action,\n  className,\n}: {\n  icon?: ReactNode\n  title: string\n  description?: string\n  action?: ReactNode\n  className?: string\n}) {\n  return (\n    <div\n      className={[\n        \"flex flex-col items-center gap-2 px-4 py-8 text-center text-sm text-steel\",\n        className ?? \"\",\n      ]\n        .join(\" \")\n        .trim()}\n    >\n      {icon ? <span className=\"text-steel/70\">{icon}</span> : null}\n      <span className=\"font-medium text-ink\">{title}</span>\n      {description ? <span className=\"max-w-md\">{description}</span> : null}\n      {action ? <div className=\"mt-1\">{action}</div> : null}\n    </div>\n  )\n}\n",
+      "type": "registry:component",
+      "target": "@components/ui/empty-state.tsx"
+    }
+  ],
+  "type": "registry:component"
+}
