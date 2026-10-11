@@ -2448,3 +2448,33 @@ textarea.form-input {
   border-radius: 20px;
   background: var(--preview-surface);
 }
+
+/*
+ * ---------------------------------------------------------------------------
+ * Toned surfaces.
+ *
+ * A tinted block (a status chip, an inline notice) used to be a light-theme hex
+ * (`bg-[#edf2f5]`, `bg-[#e7f3eb]`, …) that the theme then had to re-point with
+ * `!important`. These classes are that tint as a token, and they set the background
+ * only — the geometry (radius, padding, type) stays with the caller.
+ * ---------------------------------------------------------------------------
+ */
+.tint-neutral {
+  background: color-mix(in srgb, var(--tone-child-bg) 92%, transparent);
+}
+
+.tint-info {
+  background: color-mix(in srgb, var(--info) 14%, var(--tone-child-bg));
+}
+
+.tint-success {
+  background: color-mix(in srgb, var(--success) 14%, var(--tone-child-bg));
+}
+
+.tint-warning {
+  background: color-mix(in srgb, var(--warning) 16%, var(--tone-child-bg));
+}
+
+.tint-danger {
+  background: color-mix(in srgb, var(--danger) 12%, var(--tone-child-bg));
+}
