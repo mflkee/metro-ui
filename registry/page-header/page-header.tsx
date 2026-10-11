@@ -1,26 +1,37 @@
-import type { ReactNode } from "react"
-import { cn } from "@/lib/utils"
+import { type ReactNode } from "react"
 
+/**
+ * The fleet page header: the title, the one-line description and the page's actions.
+ *
+ * It is the header the fleet's pages actually use (metroLog and metroGen shipped the same local
+ * copy), so it lives here once. The registry used to carry a different, shadcn-shaped header that
+ * only two pilot pages used.
+ */
 export function PageHeader({
   title,
   description,
-  actions,
+  action,
   className,
 }: {
-  title: ReactNode
-  description?: ReactNode
-  actions?: ReactNode
+  title: string
+  description: string
+  action?: ReactNode
   className?: string
 }) {
   return (
-    <header className={cn("flex flex-wrap items-start justify-between gap-4", className)}>
-      <div className="min-w-0">
-        <h2 className="text-2xl font-bold">{title}</h2>
-        {description ? (
-          <p className="text-sm text-muted-foreground">{description}</p>
-        ) : null}
+    <header
+      className={[
+        "mb-5 flex flex-col gap-2 sm:mb-6 sm:gap-3 md:flex-row md:items-start md:justify-between",
+        className ?? "",
+      ]
+        .join(" ")
+        .trim()}
+    >
+      <div className="space-y-1.5 sm:space-y-2">
+        <h2 className="text-2xl font-semibold tracking-tight text-ink sm:text-3xl">{title}</h2>
+        <p className="max-w-3xl text-sm leading-6 text-steel">{description}</p>
       </div>
-      {actions ? <div className="flex items-center gap-2">{actions}</div> : null}
+      {action ? <div className="shrink-0">{action}</div> : null}
     </header>
   )
 }

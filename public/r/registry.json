@@ -383,10 +383,7 @@
       "name": "page-header",
       "type": "registry:component",
       "title": "Page header",
-      "description": "Page title, description and action slot.",
-      "registryDependencies": [
-        "@metro/utils"
-      ],
+      "description": "The fleet page header: title, description and the page's actions (the header the fleet's pages use).",
       "files": [
         {
           "path": "registry/page-header/page-header.tsx",
