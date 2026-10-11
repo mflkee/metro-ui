@@ -7,9 +7,9 @@
       "name": "metro-theme",
       "type": "registry:file",
       "title": "Metro theme",
-      "description": "Brand design tokens for the metro fleet: light + dark, Geist font, semantic colors.",
+      "description": "The metro fleet theme: the dark palette plus tokyonight, catppuccin, kanagawa, nord, dracula and gruvbox, the shadcn token mapping, the base layer and the shared component classes.",
       "dependencies": [
-        "@fontsource-variable/geist"
+        "@fontsource-variable/ibm-plex-sans"
       ],
       "files": [
         {
