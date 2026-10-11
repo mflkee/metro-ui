@@ -21,39 +21,60 @@
       "docs": "Add this to `src/index.css`, right after `@import \"tailwindcss\";`:\n\n```css\n@import \"./metro-theme.css\";\n```"
     },
     {
-      "name": "theme-provider",
-      "type": "registry:component",
-      "title": "Theme provider",
-      "description": "next-themes provider with class strategy (light/dark/system).",
-      "dependencies": [
-        "next-themes"
-      ],
+      "name": "theme-store",
+      "type": "registry:lib",
+      "title": "Theme store",
+      "description": "The fleet theme store: one preference under one key, applied as data-theme on <html>, dark by default. Framework-agnostic, no dependencies.",
       "files": [
         {
-          "path": "registry/theme-provider/theme-provider.tsx",
-          "type": "registry:component",
-          "target": "@components/theme-provider.tsx"
+          "path": "registry/theme-store/theme-store.ts",
+          "type": "registry:lib",
+          "target": "@lib/theme-store.ts"
         }
       ]
     },
     {
-      "name": "theme-toggle",
+      "name": "theme-switcher",
       "type": "registry:component",
-      "title": "Theme toggle",
-      "description": "Light / dark / system switcher.",
-      "dependencies": [
-        "next-themes",
-        "lucide-react"
-      ],
+      "title": "Theme switcher",
+      "description": "The fleet theme picker (a small menu, not a shadcn dropdown), identical in every service.",
       "registryDependencies": [
-        "button",
-        "dropdown-menu"
+        "theme-store"
       ],
       "files": [
         {
-          "path": "registry/theme-toggle/theme-toggle.tsx",
+          "path": "registry/theme-switcher/theme-switcher.tsx",
           "type": "registry:component",
-          "target": "@components/theme-toggle.tsx"
+          "target": "@components/theme-switcher.tsx"
+        }
+      ]
+    },
+    {
+      "name": "version-badge",
+      "type": "registry:component",
+      "title": "Version badge",
+      "description": "The application version and release channel, set next to the wordmark.",
+      "files": [
+        {
+          "path": "registry/version-badge/version-badge.tsx",
+          "type": "registry:component",
+          "target": "@components/version-badge.tsx"
+        }
+      ]
+    },
+    {
+      "name": "app-shell",
+      "type": "registry:block",
+      "title": "App shell",
+      "description": "The fleet application shell: collapsible sidebar, mobile drawer, top bar with the brand, the version badge, the status slot and the actions slot. Everything service-specific is a slot.",
+      "dependencies": [
+        "react-router-dom"
+      ],
+      "files": [
+        {
+          "path": "registry/app-shell/app-shell.tsx",
+          "type": "registry:block",
+          "target": "@components/app-shell.tsx"
         }
       ]
     },
@@ -102,29 +123,6 @@
           "path": "registry/page-header/page-header.tsx",
           "type": "registry:component",
           "target": "@components/page-header.tsx"
-        }
-      ]
-    },
-    {
-      "name": "app-shell",
-      "type": "registry:block",
-      "title": "App shell",
-      "description": "Sidebar + topbar + content layout built on the shadcn sidebar primitive.",
-      "dependencies": [
-        "lucide-react",
-        "react-router-dom"
-      ],
-      "registryDependencies": [
-        "sidebar",
-        "button",
-        "separator",
-        "tooltip"
-      ],
-      "files": [
-        {
-          "path": "registry/app-shell/app-shell.tsx",
-          "type": "registry:block",
-          "target": "@components/app-shell.tsx"
         }
       ]
     }

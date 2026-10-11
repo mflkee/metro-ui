@@ -1,0 +1,15 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "version-badge",
+  "title": "Version badge",
+  "description": "The application version and release channel, set next to the wordmark.",
+  "files": [
+    {
+      "path": "registry/version-badge/version-badge.tsx",
+      "content": "type AppVersionBadgeProps = {\n  version: string\n  /** The release channel — `beta` for a pre-1.0 service. */\n  stage?: string\n  onClick?: () => void\n  className?: string\n  title?: string\n}\n\n/**\n * The version and the release channel, set next to the wordmark and on its baseline\n * rather than in a chip of their own. The version comes from the build (Vite injects\n * it), so the shell never hardcodes it.\n */\nexport function AppVersionBadge({\n  version,\n  stage,\n  onClick,\n  className,\n  title,\n}: AppVersionBadgeProps) {\n  return (\n    <button\n      className={[\n        \"shrink-0 whitespace-nowrap text-[10px] font-semibold tracking-[0.08em] text-steel\",\n        onClick ? \"transition hover:text-ink\" : \"\",\n        className ?? \"\",\n      ].join(\" \")}\n      onClick={onClick}\n      title={title ?? (stage ? `v${version} (${stage})` : `v${version}`)}\n      type=\"button\"\n    >\n      <span className=\"whitespace-nowrap\">v{version}</span>\n      {stage ? (\n        <span\n          className=\"ml-1.5 text-[9px] uppercase tracking-[0.16em] text-steel/70\"\n          data-testid=\"app-stage\"\n        >\n          {stage}\n        </span>\n      ) : null}\n    </button>\n  )\n}\n",
+      "type": "registry:component",
+      "target": "@components/version-badge.tsx"
+    }
+  ],
+  "type": "registry:component"
+}
