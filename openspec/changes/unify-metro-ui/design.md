@@ -86,6 +86,13 @@ every service, so a person's choices follow them across the fleet. Retired theme
 are read as a fallback, but the collapsed state is not migrated: the sidebar expands
 once on the first visit after adoption.
 
+### metroGen brings its own pieces into the theme
+
+metroGen had nine classes the theme lacked (a metric card, a section card, a status
+chip and the document preview surface). They are generic, so they moved into the theme
+where every service gets them in every theme, instead of staying a second local style
+sheet. Its theme catalogue (light, gray, moonfly) was retired with its own store.
+
 ## Risks / Trade-offs
 
 - **Copy-in drift**: four copies of every primitive. Mitigated by the "never edit a

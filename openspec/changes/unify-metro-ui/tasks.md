@@ -18,9 +18,9 @@
 
 ## 3. metroGen adopts the registry
 
-- [ ] 3.1 Install the registry and the shared theme; remove the bespoke palette and font setup.
-- [ ] 3.2 Replace the local `Modal`, `DeleteConfirmModal`, `PasswordInput` and layout with the registry primitives and `app-shell`; keep each screen's behaviour.
-- [ ] 3.3 Re-skin the pages against the metroLog reference, one at a time (login, dashboard, generation, admin*), verifying on Stage after each.
+- [x] 3.1 Install the registry and the shared theme; remove the bespoke palette and font setup.
+- [x] 3.2 Replace the local `Modal`, `DeleteConfirmModal`, `PasswordInput` and layout with the registry primitives and `app-shell`; keep each screen's behaviour.
+- [ ] 3.3 Re-skin the pages against the metroLog reference, one at a time (login, dashboard, generation, admin*), verifying on Stage after each. The remaining native controls found by the sweep: `<select>` in `AdminUsersPage`, `UserDetailsPage`, `AdminMethodologiesPage` (use the registry `select`); `window.confirm` in `GenerationPage` (use the fleet dialog); `type="number"` in `AdminMethodologiesPage`, `GenerationPage`, `AdminEtalonsPage` (use `NumberInput`).
 - [ ] 3.4 Verify: build and lint pass, and a side-by-side screenshot with metroLog is indistinguishable in structure and colour.
 
 ## 4. metroCheck adopts the registry
