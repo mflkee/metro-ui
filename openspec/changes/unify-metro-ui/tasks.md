@@ -37,7 +37,7 @@
 
 ## 6. Cross-service verification
 
-- [ ] 6.1 Walk the four sign-in screens side by side; confirm they are indistinguishable.
-- [ ] 6.2 Walk the four dashboards and one list/table screen each; confirm the same shell, spacing, controls and empty states.
-- [ ] 6.3 Add a lint rule (or a small test) in each service that rejects hardcoded colours in `src` and edits to vendored registry files.
-- [ ] 6.4 Record the outcome in the vault (`servers/mkair-server-tmn/metro-accounts.md` and the service notes) and close this change.
+- [x] 6.1 Walk the four sign-in screens side by side; confirm they are indistinguishable.
+- [x] 6.2 Walk the four dashboards and one list/table screen each; confirm the same shell, spacing, controls and empty states.
+- [x] 6.3 Add a lint rule (or a small test) in each service that rejects hardcoded colours in `src` and edits to vendored registry files.
+- [x] 6.4 Record the outcome in the vault (`servers/mkair-server-tmn/metro-accounts.md` and the service notes) and close this change.
