@@ -79,6 +79,13 @@ tables, the date and number inputs — is a registry item vendored into
 `src/components/ui`. Pages use those, plus the shared classes, and never a raw
 palette value.
 
+### Storage keys are the fleet's, and the old ones are read once
+
+The theme lives under `metro.theme` and the sidebar under `metro.sidebarCollapsed` in
+every service, so a person's choices follow them across the fleet. Retired theme keys
+are read as a fallback, but the collapsed state is not migrated: the sidebar expands
+once on the first visit after adoption.
+
 ## Risks / Trade-offs
 
 - **Copy-in drift**: four copies of every primitive. Mitigated by the "never edit a
