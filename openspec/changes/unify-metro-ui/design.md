@@ -93,6 +93,14 @@ chip and the document preview surface). They are generic, so they moved into the
 where every service gets them in every theme, instead of staying a second local style
 sheet. Its theme catalogue (light, gray, moonfly) was retired with its own store.
 
+### metroCheck added three items to the registry
+
+metroCheck was the only service with a progress bar, an empty state and a time field,
+and none of the three existed in `metro-ui`. Rather than keep them local (which is how
+the fleet ended up with four different looks), they were added to the registry:
+`progress`, `empty-state` and `time-input`. The last one exists because `type="time"`
+opens the operating system's clock picker, exactly like `type="date"` did.
+
 ## Risks / Trade-offs
 
 - **Copy-in drift**: four copies of every primitive. Mitigated by the "never edit a

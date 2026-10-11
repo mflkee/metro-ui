@@ -25,9 +25,9 @@
 
 ## 4. metroCheck adopts the registry
 
-- [ ] 4.1 Replace the `radix-nova` preset with the shared theme and registry components; keep the dark default.
-- [ ] 4.2 Rebuild the login and the two pages (dashboard, scheduler) with the shared shell and primitives.
-- [ ] 4.3 Verify: build passes, the sign-in screen and both pages match the metroLog reference.
+- [x] 4.1 Replace the `radix-nova` preset with the shared theme and registry components; keep the dark default.
+- [x] 4.2 Rebuild the login and the two pages (dashboard, scheduler) with the shared shell and primitives.
+- [x] 4.3 Verify: build passes, the sign-in screen and both pages match the metroLog reference.
 
 ## 5. metroAccounts console adopts the registry
 
