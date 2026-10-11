@@ -1,0 +1,18 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "mention-text",
+  "title": "Mention text",
+  "description": "Renders message and comment text with mentions highlighted by the theme token.",
+  "registryDependencies": [
+    "mentions"
+  ],
+  "files": [
+    {
+      "path": "registry/mention-text/mention-text.tsx",
+      "content": "import { splitMentionText } from \"@/lib/mentions\";\n\ntype MentionTextProps = {\n  text: string;\n};\n\n/**\n * Message text with its `@mentions` picked out: a mention is what sends the notification, so it is\n * worth seeing, and the theme's blue marks it. Everything else is rendered exactly as before - the\n * wrapper is a plain `span`, so the surrounding paragraph keeps its own line breaks and wrapping.\n */\nexport function MentionText({ text }: MentionTextProps) {\n  const parts = splitMentionText(text);\n\n  return (\n    <>\n      {parts.map((part, index) =>\n        part.type === \"mention\" ? (\n          <span className=\"mention\" key={`${part.value}-${index}`}>\n            {part.value}\n          </span>\n        ) : (\n          <span key={`text-${index}`}>{part.value}</span>\n        ),\n      )}\n    </>\n  );\n}\n",
+      "type": "registry:component",
+      "target": "@components/mention-text.tsx"
+    }
+  ],
+  "type": "registry:component"
+}

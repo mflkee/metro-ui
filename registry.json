@@ -63,18 +63,268 @@
       ]
     },
     {
-      "name": "app-shell",
-      "type": "registry:block",
-      "title": "App shell",
-      "description": "The fleet application shell: collapsible sidebar, mobile drawer, top bar with the brand, the version badge, the status slot and the actions slot. Everything service-specific is a slot.",
+      "name": "utils",
+      "type": "registry:lib",
+      "title": "Utilities",
+      "description": "The `cn` class-name helper shared by every component.",
       "dependencies": [
-        "react-router-dom"
+        "clsx",
+        "tailwind-merge"
       ],
       "files": [
         {
-          "path": "registry/app-shell/app-shell.tsx",
-          "type": "registry:block",
-          "target": "@components/app-shell.tsx"
+          "path": "registry/utils/utils.ts",
+          "type": "registry:lib",
+          "target": "@lib/utils.ts"
+        }
+      ]
+    },
+    {
+      "name": "mentions",
+      "type": "registry:lib",
+      "title": "Mentions",
+      "description": "The `@ФамилияИО` splitter: it matches the backend's mention key so a mention is highlighted exactly where the backend links it.",
+      "files": [
+        {
+          "path": "registry/mentions/mentions.ts",
+          "type": "registry:lib",
+          "target": "@lib/mentions.ts"
+        }
+      ]
+    },
+    {
+      "name": "numeric-input",
+      "type": "registry:lib",
+      "title": "Numeric input helpers",
+      "description": "The sanitiser behind NumberInput: digits only, no browser number semantics.",
+      "files": [
+        {
+          "path": "registry/numeric-input/numericInput.ts",
+          "type": "registry:lib",
+          "target": "@lib/numericInput.ts"
+        }
+      ]
+    },
+    {
+      "name": "floating-autocomplete-menu",
+      "type": "registry:component",
+      "title": "Floating autocomplete menu",
+      "description": "The shared dropdown surface: fixed-position, portalled into the dialog when the field lives in one, opens downwards.",
+      "files": [
+        {
+          "path": "registry/floating-autocomplete-menu/floating-autocomplete-menu.tsx",
+          "type": "registry:component",
+          "target": "@components/floating-autocomplete-menu.tsx"
+        }
+      ]
+    },
+    {
+      "name": "icon-action-button",
+      "type": "registry:component",
+      "title": "Icon action button",
+      "description": "The compact icon-only action button used on rows and cards.",
+      "files": [
+        {
+          "path": "registry/icon-action-button/icon-action-button.tsx",
+          "type": "registry:component",
+          "target": "@components/icon-action-button.tsx"
+        }
+      ]
+    },
+    {
+      "name": "button",
+      "type": "registry:component",
+      "title": "Button",
+      "description": "The fleet button.",
+      "dependencies": [
+        "class-variance-authority",
+        "radix-ui"
+      ],
+      "registryDependencies": [
+        "utils"
+      ],
+      "files": [
+        {
+          "path": "registry/button/button.tsx",
+          "type": "registry:component",
+          "target": "@components/ui/button.tsx"
+        }
+      ]
+    },
+    {
+      "name": "badge",
+      "type": "registry:component",
+      "title": "Badge",
+      "description": "The fleet badge.",
+      "dependencies": [
+        "class-variance-authority",
+        "radix-ui"
+      ],
+      "registryDependencies": [
+        "utils"
+      ],
+      "files": [
+        {
+          "path": "registry/badge/badge.tsx",
+          "type": "registry:component",
+          "target": "@components/ui/badge.tsx"
+        }
+      ]
+    },
+    {
+      "name": "card",
+      "type": "registry:component",
+      "title": "Card",
+      "description": "The fleet card.",
+      "dependencies": [
+        "radix-ui"
+      ],
+      "registryDependencies": [
+        "utils"
+      ],
+      "files": [
+        {
+          "path": "registry/card/card.tsx",
+          "type": "registry:component",
+          "target": "@components/ui/card.tsx"
+        }
+      ]
+    },
+    {
+      "name": "switch",
+      "type": "registry:component",
+      "title": "Switch",
+      "description": "The fleet switch (boolean settings; checkboxes stay for list selection).",
+      "dependencies": [
+        "radix-ui"
+      ],
+      "registryDependencies": [
+        "utils"
+      ],
+      "files": [
+        {
+          "path": "registry/switch/switch.tsx",
+          "type": "registry:component",
+          "target": "@components/ui/switch.tsx"
+        }
+      ]
+    },
+    {
+      "name": "dialog",
+      "type": "registry:component",
+      "title": "Dialog",
+      "description": "The dialog primitive. Clicking the backdrop does not close it — only an explicit button or Escape does.",
+      "dependencies": [
+        "radix-ui",
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "utils",
+        "button"
+      ],
+      "files": [
+        {
+          "path": "registry/dialog/dialog.tsx",
+          "type": "registry:component",
+          "target": "@components/ui/dialog.tsx"
+        }
+      ]
+    },
+    {
+      "name": "app-dialog",
+      "type": "registry:component",
+      "title": "App dialog",
+      "description": "The app's own shell over the dialog: title, body, footer and the dismissal contract.",
+      "registryDependencies": [
+        "dialog",
+        "icon-action-button"
+      ],
+      "files": [
+        {
+          "path": "registry/app-dialog/app-dialog.tsx",
+          "type": "registry:component",
+          "target": "@components/ui/app-dialog.tsx"
+        }
+      ]
+    },
+    {
+      "name": "select",
+      "type": "registry:component",
+      "title": "Select",
+      "description": "The fleet's single-choice list — never a native <select> (that opens an OS popup).",
+      "registryDependencies": [
+        "floating-autocomplete-menu"
+      ],
+      "files": [
+        {
+          "path": "registry/select/select.tsx",
+          "type": "registry:component",
+          "target": "@components/ui/select.tsx"
+        }
+      ]
+    },
+    {
+      "name": "searchable-select",
+      "type": "registry:component",
+      "title": "Searchable select",
+      "description": "Single/multi select with chips, keyboard navigation, a results cap and optional query history.",
+      "registryDependencies": [
+        "floating-autocomplete-menu"
+      ],
+      "files": [
+        {
+          "path": "registry/searchable-select/searchable-select.tsx",
+          "type": "registry:component",
+          "target": "@components/ui/searchable-select.tsx"
+        }
+      ]
+    },
+    {
+      "name": "date-input",
+      "type": "registry:component",
+      "title": "Date input",
+      "description": "The date field and its calendar (react-day-picker, Russian locale). No native date input and no separate «today» button.",
+      "dependencies": [
+        "react-day-picker",
+        "date-fns"
+      ],
+      "files": [
+        {
+          "path": "registry/date-input/date-input.tsx",
+          "type": "registry:component",
+          "target": "@components/date-input.tsx"
+        }
+      ]
+    },
+    {
+      "name": "number-input",
+      "type": "registry:component",
+      "title": "Number input",
+      "description": "The numeric field: a text input with inputMode=numeric and a digits-only filter, not type=number.",
+      "registryDependencies": [
+        "numeric-input"
+      ],
+      "files": [
+        {
+          "path": "registry/number-input/number-input.tsx",
+          "type": "registry:component",
+          "target": "@components/number-input.tsx"
+        }
+      ]
+    },
+    {
+      "name": "mention-text",
+      "type": "registry:component",
+      "title": "Mention text",
+      "description": "Renders message and comment text with mentions highlighted by the theme token.",
+      "registryDependencies": [
+        "mentions"
+      ],
+      "files": [
+        {
+          "path": "registry/mention-text/mention-text.tsx",
+          "type": "registry:component",
+          "target": "@components/mention-text.tsx"
         }
       ]
     },
@@ -87,13 +337,14 @@
         "class-variance-authority"
       ],
       "registryDependencies": [
-        "badge"
+        "badge",
+        "utils"
       ],
       "files": [
         {
           "path": "registry/status-badge/status-badge.tsx",
           "type": "registry:component",
-          "target": "@components/status-badge.tsx"
+          "target": "@components/ui/status-badge.tsx"
         }
       ]
     },
@@ -103,13 +354,15 @@
       "title": "Stat card",
       "description": "Metric card for dashboards.",
       "registryDependencies": [
-        "card"
+        "card",
+        "status-badge",
+        "utils"
       ],
       "files": [
         {
           "path": "registry/stat-card/stat-card.tsx",
           "type": "registry:component",
-          "target": "@components/stat-card.tsx"
+          "target": "@components/ui/stat-card.tsx"
         }
       ]
     },
@@ -118,11 +371,30 @@
       "type": "registry:component",
       "title": "Page header",
       "description": "Page title, description and action slot.",
+      "registryDependencies": [
+        "utils"
+      ],
       "files": [
         {
           "path": "registry/page-header/page-header.tsx",
           "type": "registry:component",
-          "target": "@components/page-header.tsx"
+          "target": "@components/ui/page-header.tsx"
+        }
+      ]
+    },
+    {
+      "name": "app-shell",
+      "type": "registry:block",
+      "title": "App shell",
+      "description": "The fleet application shell: collapsible sidebar, mobile drawer, top bar with the brand, the version badge, the status slot and the actions slot. Everything service-specific is a slot.",
+      "dependencies": [
+        "react-router-dom"
+      ],
+      "files": [
+        {
+          "path": "registry/app-shell/app-shell.tsx",
+          "type": "registry:block",
+          "target": "@components/app-shell.tsx"
         }
       ]
     }

@@ -1,7 +1,7 @@
 import type { ComponentType, ReactNode } from "react"
 import { Card, CardContent } from "@/components/ui/card"
 import { cn } from "@/lib/utils"
-import type { StatusTone } from "@/components/status-badge"
+import type { StatusTone } from "@/components/ui/status-badge"
 
 const TONE_TEXT: Record<StatusTone, string> = {
   neutral: "text-foreground",
@@ -9,7 +9,7 @@ const TONE_TEXT: Record<StatusTone, string> = {
   info: "text-info",
   success: "text-success",
   warning: "text-warning",
-  danger: "text-destructive",
+  danger: "text-[color:var(--danger-text)]",
 }
 
 export function StatCard({

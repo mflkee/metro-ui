@@ -1,0 +1,15 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "icon-action-button",
+  "title": "Icon action button",
+  "description": "The compact icon-only action button used on rows and cards.",
+  "files": [
+    {
+      "path": "registry/icon-action-button/icon-action-button.tsx",
+      "content": "import type { ButtonHTMLAttributes, ReactNode } from \"react\";\n\ntype IconActionButtonProps = ButtonHTMLAttributes<HTMLButtonElement> & {\n  label: string;\n  icon: ReactNode;\n  size?: \"default\" | \"tiny\";\n};\n\nexport function IconActionButton({\n  className,\n  icon,\n  label,\n  size = \"default\",\n  title,\n  type = \"button\",\n  ...props\n}: IconActionButtonProps) {\n  return (\n    <button\n      aria-label={label}\n      className={[\n        \"icon-action-button\",\n        size === \"tiny\" ? \"icon-action-button--tiny\" : \"\",\n        className ?? \"\",\n      ]\n        .filter(Boolean)\n        .join(\" \")}\n      title={title ?? label}\n      type={type}\n      {...props}\n    >\n      {icon}\n    </button>\n  );\n}\n",
+      "type": "registry:component",
+      "target": "@components/icon-action-button.tsx"
+    }
+  ],
+  "type": "registry:component"
+}

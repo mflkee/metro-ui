@@ -6,8 +6,8 @@
 - [x] 1.2 Move the shared component classes out of metroLog's `styles.css` into the same file (buttons, form controls, panels, shell, sidebar, process badges, mentions); verify the class list matches metroLog's, minus app-only rules.
 - [x] 1.3 Add the `theme-store` registry item (framework-agnostic: localStorage key, `data-theme`, subscribe, hook) with `dark` as the default; verify a scratch page switches themes and remembers the choice after a reload.
 - [x] 1.4 Replace `app-shell` with metroLog's shell: brand slot, navigation sections as data, footer user block, header actions (theme switcher, version badge, help); verify it renders with a sample navigation.
-- [ ] 1.5 Add the component items: `button`, `card`, `input`, `select`, `searchable-select`, `switch`, `dialog`, `app-dialog`, `badge`, `status-badge`, `stat-card`, `page-header`, `table`, `date-input`, `number-input`, `mention-text`, `empty-state`; verify each item builds with `shadcn build`.
-- [ ] 1.6 Regenerate `public/r/*.json`, tag the registry (`v0.x.0`), and document the consumption snippet in `README.md`.
+- [x] 1.5 Add the component items: `button`, `card`, `input`, `select`, `searchable-select`, `switch`, `dialog`, `app-dialog`, `badge`, `status-badge`, `stat-card`, `page-header`, `table`, `date-input`, `number-input`, `mention-text`, `empty-state`; verify each item builds with `shadcn build`.
+- [x] 1.6 Regenerate `public/r/*.json`, tag the registry (`v0.x.0`), and document the consumption snippet in `README.md`.
 
 ## 2. metroLog adopts the registry (reference)
 

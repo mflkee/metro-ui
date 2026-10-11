@@ -1,0 +1,15 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "mentions",
+  "title": "Mentions",
+  "description": "The `@ФамилияИО` splitter: it matches the backend's mention key so a mention is highlighted exactly where the backend links it.",
+  "files": [
+    {
+      "path": "registry/mentions/mentions.ts",
+      "content": "/*\n * A mention is what makes the notification fire, so it is worth seeing in the text. The backend\n * builds the key from the name (`build_user_mention_base`): the surname plus the initials with\n * everything that is not alphanumeric removed (`БулашевАН`, and `БулашевАН12` when two people\n * collide), then looks for `@key` in the text. The highlight follows the same shape.\n */\n\nexport type MentionTextPart = {\n  type: \"text\" | \"mention\";\n  value: string;\n};\n\n/*\n * The `@` must start a word: an email address (`user@mkair.ru`) is not half-lit, and neither is a\n * mention glued to a letter. Everything alphanumeric after the `@` belongs to the mention, which is\n * exactly what the backend keys contain.\n */\nconst MENTION_PATTERN = /(?<![\\p{L}\\p{N}._@-])@([\\p{L}\\p{N}]+)/gu;\n\nexport function splitMentionText(text: string): MentionTextPart[] {\n  const parts: MentionTextPart[] = [];\n  let cursor = 0;\n\n  for (const match of text.matchAll(MENTION_PATTERN)) {\n    const index = match.index ?? 0;\n    if (index > cursor) {\n      parts.push({ type: \"text\", value: text.slice(cursor, index) });\n    }\n    const mention = `@${match[1]}`;\n    parts.push({ type: \"mention\", value: mention });\n    cursor = index + mention.length;\n  }\n\n  if (cursor < text.length) {\n    parts.push({ type: \"text\", value: text.slice(cursor) });\n  }\n\n  return parts;\n}\n",
+      "type": "registry:lib",
+      "target": "@lib/mentions.ts"
+    }
+  ],
+  "type": "registry:lib"
+}

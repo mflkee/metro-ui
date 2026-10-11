@@ -1,0 +1,15 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "numeric-input",
+  "title": "Numeric input helpers",
+  "description": "The sanitiser behind NumberInput: digits only, no browser number semantics.",
+  "files": [
+    {
+      "path": "registry/numeric-input/numericInput.ts",
+      "content": "/*\n * The app draws its own controls, and a numeric field is one of them. The browser's number field\n * (`input type=number`) leaves the browser in charge of a value the app stores, and the browser's\n * rules are not ours: the mouse wheel changes a focused field, `min`/`step` raise the browser's own\n * validation bubble, and `e`, `+`, `-` and a locale separator are accepted by some browsers and\n * rejected by others.\n */\n\ntype NumericInputOptions = {\n  allowDecimal?: boolean;\n  allowNegative?: boolean;\n  maxLength?: number;\n};\n\n/** Keeps only what a numeric field may hold: digits, at most one separator, at most one leading sign. */\nexport function sanitizeNumericInput(raw: string, options: NumericInputOptions = {}): string {\n  const { allowDecimal = false, allowNegative = false, maxLength } = options;\n  const characters = Array.from(allowDecimal ? raw.replace(/,/g, \".\") : raw);\n  let result = \"\";\n  let hasSeparator = false;\n\n  characters.forEach((character, index) => {\n    if (character >= \"0\" && character <= \"9\") {\n      result += character;\n      return;\n    }\n    if (character === \".\" && allowDecimal && !hasSeparator) {\n      hasSeparator = true;\n      result += character;\n      return;\n    }\n    if (character === \"-\" && allowNegative && index === 0) {\n      result += character;\n    }\n  });\n\n  return maxLength === undefined ? result : result.slice(0, maxLength);\n}\n\n/** A stored number as its field shows it: an absent value is an empty field. */\nexport function numericInputValue(value: number | null | undefined): string {\n  return value === null || value === undefined ? \"\" : String(value);\n}\n",
+      "type": "registry:lib",
+      "target": "@lib/numericInput.ts"
+    }
+  ],
+  "type": "registry:lib"
+}

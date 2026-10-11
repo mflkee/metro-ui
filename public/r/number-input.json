@@ -1,0 +1,18 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "number-input",
+  "title": "Number input",
+  "description": "The numeric field: a text input with inputMode=numeric and a digits-only filter, not type=number.",
+  "registryDependencies": [
+    "numeric-input"
+  ],
+  "files": [
+    {
+      "path": "registry/number-input/number-input.tsx",
+      "content": "import { type ChangeEvent, type InputHTMLAttributes } from \"react\";\n\nimport { sanitizeNumericInput } from \"@/lib/numericInput\";\n\ntype NumberInputProps = Omit<\n  InputHTMLAttributes<HTMLInputElement>,\n  \"autoComplete\" | \"inputMode\" | \"onChange\" | \"type\" | \"value\"\n> & {\n  value: string;\n  onValueChange: (value: string) => void;\n  /** Keep one decimal separator (`,` is normalised to `.`). Integers by default. */\n  allowDecimal?: boolean;\n  /** Keep a leading minus. Positive values only by default. */\n  allowNegative?: boolean;\n};\n\n/**\n * A numeric field the app owns, mirroring `DateInput` and `Select`: the browser is handed a text\n * field, so it never changes the value on a wheel scroll, never raises its own validation bubble\n * and never accepts `e`, `+` or a locale separator. Only digits reach the caller.\n */\nexport function NumberInput({\n  value,\n  onValueChange,\n  allowDecimal = false,\n  allowNegative = false,\n  maxLength,\n  ...rest\n}: NumberInputProps) {\n  function handleChange(event: ChangeEvent<HTMLInputElement>) {\n    onValueChange(\n      sanitizeNumericInput(event.target.value, { allowDecimal, allowNegative, maxLength }),\n    );\n  }\n\n  return (\n    <input\n      {...rest}\n      autoComplete=\"off\"\n      inputMode={allowDecimal ? \"decimal\" : \"numeric\"}\n      maxLength={maxLength}\n      type=\"text\"\n      value={value}\n      onChange={handleChange}\n    />\n  );\n}\n",
+      "type": "registry:component",
+      "target": "@components/number-input.tsx"
+    }
+  ],
+  "type": "registry:component"
+}
