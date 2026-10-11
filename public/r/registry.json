@@ -456,7 +456,7 @@
         {
           "path": "registry/ui-guard/fleet-ui.mjs",
           "type": "registry:file",
-          "target": "../scripts/fleet-ui.mjs"
+          "target": "/scripts/fleet-ui.mjs"
         }
       ]
     }
