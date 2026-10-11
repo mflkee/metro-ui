@@ -31,9 +31,9 @@
 
 ## 5. metroAccounts console adopts the registry
 
-- [ ] 5.1 Replace the console's ad-hoc theme with the shared theme and primitives; keep the dark default.
-- [ ] 5.2 Rebuild the owner console (employee list, per-service flags and roles, create dialog) and the invite/reset pages with the shared shell and controls.
-- [ ] 5.3 Verify: the console matches the metroLog reference and the account flows still work end to end.
+- [x] 5.1 Replace the console's ad-hoc theme with the shared theme and primitives; keep the dark default.
+- [x] 5.2 Rebuild the owner console (employee list, per-service flags and roles, create dialog) and the invite/reset pages with the shared shell and controls.
+- [x] 5.3 Verify: the console matches the metroLog reference and the account flows still work end to end.
 
 ## 6. Cross-service verification
 

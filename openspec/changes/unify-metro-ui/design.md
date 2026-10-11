@@ -101,6 +101,15 @@ the fleet ended up with four different looks), they were added to the registry:
 `progress`, `empty-state` and `time-input`. The last one exists because `type="time"`
 opens the operating system's clock picker, exactly like `type="date"` did.
 
+### The console stopped being an island
+
+metroAccounts had its own `@theme` (canvas/panel/line/ink/steel/accent — a blue-dark
+palette of its own) and a hand-rolled kit (`Button`, `Input`, a native `Select`,
+`Label`, `Card`, `Badge`, `Switch`, `Modal`). Both are gone: the console renders in the
+fleet shell with the registry's primitives, so the one screen where access is granted
+looks like the services it grants access to. Its role picker was a native `<select>` —
+the same violation the other services had.
+
 ## Risks / Trade-offs
 
 - **Copy-in drift**: four copies of every primitive. Mitigated by the "never edit a
