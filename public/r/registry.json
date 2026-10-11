@@ -313,6 +313,19 @@
       ]
     },
     {
+      "name": "time-input",
+      "type": "registry:component",
+      "title": "Time input",
+      "description": "The fleet time field: a masked text input, so the browser never opens the operating system's clock picker.",
+      "files": [
+        {
+          "path": "registry/time-input/time-input.tsx",
+          "type": "registry:component",
+          "target": "@components/ui/time-input.tsx"
+        }
+      ]
+    },
+    {
       "name": "password-input",
       "type": "registry:component",
       "title": "Password input",

@@ -1,0 +1,15 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "time-input",
+  "title": "Time input",
+  "description": "The fleet time field: a masked text input, so the browser never opens the operating system's clock picker.",
+  "files": [
+    {
+      "path": "registry/time-input/time-input.tsx",
+      "content": "import { type ChangeEvent, type FocusEvent, type InputHTMLAttributes } from \"react\"\n\ntype TimeInputProps = Omit<\n  InputHTMLAttributes<HTMLInputElement>,\n  \"autoComplete\" | \"inputMode\" | \"onChange\" | \"type\" | \"value\"\n> & {\n  /** `\"HH:MM\"`, or `\"\"` when nothing is set. */\n  value: string\n  onChange: (value: string) => void\n}\n\n/** Keeps digits and inserts the colon, so the field reads `09:30` while it is typed. */\nfunction maskTime(raw: string): string {\n  const digits = raw.replace(/\\D/g, \"\").slice(0, 4)\n  if (digits.length <= 2) {\n    return digits\n  }\n  return `${digits.slice(0, 2)}:${digits.slice(2)}`\n}\n\n/** Pads and clamps a typed time to a real one; `\"9\"` becomes `\"09:00\"`, `\"99:99\"` becomes `\"23:59\"`. */\nfunction normalizeTime(value: string): string {\n  if (!value.trim()) {\n    return \"\"\n  }\n  const [rawHours = \"\", rawMinutes = \"00\"] = value.split(\":\")\n  const hours = Math.min(23, Number(rawHours || 0))\n  const minutes = Math.min(59, Number(rawMinutes || 0))\n  return `${String(hours).padStart(2, \"0\")}:${String(minutes).padStart(2, \"0\")}`\n}\n\n/**\n * A time field the app owns, mirroring `DateInput` and `NumberInput`: the browser is\n * handed a text field, so it never opens the operating system's clock picker and never\n * shows a time in the browser's own format.\n */\nexport function TimeInput({ value, onChange, onBlur, placeholder = \"ЧЧ:ММ\", ...rest }: TimeInputProps) {\n  function handleChange(event: ChangeEvent<HTMLInputElement>) {\n    onChange(maskTime(event.target.value))\n  }\n\n  function handleBlur(event: FocusEvent<HTMLInputElement>) {\n    const normalized = normalizeTime(event.target.value)\n    if (normalized !== event.target.value) {\n      onChange(normalized)\n    }\n    onBlur?.(event)\n  }\n\n  return (\n    <input\n      {...rest}\n      autoComplete=\"off\"\n      inputMode=\"numeric\"\n      placeholder={placeholder}\n      type=\"text\"\n      value={value}\n      onBlur={handleBlur}\n      onChange={handleChange}\n    />\n  )\n}\n",
+      "type": "registry:component",
+      "target": "@components/ui/time-input.tsx"
+    }
+  ],
+  "type": "registry:component"
+}
