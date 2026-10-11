@@ -56,6 +56,15 @@ with no framework dependency, plus a thin hook; a service may adapt it to its ow
 store instead. The key and the default (`dark`) are fixed in the registry so every
 service remembers the same preference name.
 
+### The fleet font is shipped, not assumed
+
+metroLog asked for IBM Plex Sans in its Tailwind config but nothing loaded it, so it
+rendered in the operating system's fallback. The shared theme imports the font from
+fontsource, which means adopting it changes the glyphs — the only visible difference
+the metroLog adoption produced on Stage (everything else stayed pixel-identical).
+That is the intended look finally being rendered, and every service now renders the
+same text.
+
 ### The shell is metroLog's shell
 
 `app-shell` is metroLog's sidebar + topbar with slots: brand, navigation sections,

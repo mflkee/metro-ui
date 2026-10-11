@@ -11,8 +11,8 @@
 
 ## 2. metroLog adopts the registry (reference)
 
-- [ ] 2.1 Point metroLog at the new registry version and re-add every primitive; delete the local duplicates under `src/components/ui`.
-- [ ] 2.2 Replace the local style sheet with the shared `metro-theme` import; delete the classes now living in the registry.
+- [x] 2.1 Point metroLog at the new registry version and re-add every primitive; delete the local duplicates under `src/components/ui`.
+- [x] 2.2 Replace the local style sheet with the shared `metro-theme` import; delete the classes now living in the registry.
 - [ ] 2.3 Swap metroLog's shell for the registry `app-shell` with its navigation as data; keep the behaviour identical (mobile drawer, collapse, active item).
 - [ ] 2.4 Verify: `npm run check` passes, the app looks unchanged on Stage, all seven themes still switch, and no hardcoded colour remains in `src`.
 
