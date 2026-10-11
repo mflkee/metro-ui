@@ -313,6 +313,19 @@
       ]
     },
     {
+      "name": "password-input",
+      "type": "registry:component",
+      "title": "Password input",
+      "description": "The fleet password field with a show/hide control (the app's own input, never a bare type=password).",
+      "files": [
+        {
+          "path": "registry/password-input/password-input.tsx",
+          "type": "registry:component",
+          "target": "@components/ui/password-input.tsx"
+        }
+      ]
+    },
+    {
       "name": "mention-text",
       "type": "registry:component",
       "title": "Mention text",
