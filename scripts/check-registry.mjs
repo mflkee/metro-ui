@@ -5,8 +5,7 @@
  *
  * A bare name is resolved against ui.shadcn.com, so `npx shadcn add @metro/account-menu`
  * dies with "The item at https://ui.shadcn.com/r/styles/new-york-v4/theme-switcher.json was
- * not found" — and only at the consumer's side, after the item is published. It cost two
- * debugging rounds already.
+ * not found" — and only at the consumer's side, after the item is published.
  */
 import { readFileSync } from "node:fs";
 import path from "node:path";
@@ -23,10 +22,9 @@ for (const item of registry.items) {
     if (!names.has(dep)) {
       continue; // a shadcn item (badge, card, …) or an external address
     }
-    if (!dep.startsWith("@") && !dep.startsWith("http")) {
+    if (!dep.startsWith("@")) {
       problems.push(
-        `${item.name}: registryDependency "${dep}" names an item of this registry — write the published URL ` +
-          `(https://raw.githubusercontent.com/mflkee/metro-ui/main/public/r/${dep}.json) or "@metro/${dep}"; ` +
+        `${item.name}: registryDependency "${dep}" names an item of this registry — write "@metro/${dep}"; ` +
           "a bare name is looked up on ui.shadcn.com",
       );
     }
