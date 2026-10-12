@@ -189,7 +189,8 @@ function check() {
   return 0;
 }
 
-const mode = process.argv[2] ?? "check";
+const args = process.argv.slice(2);
+const mode = args.find((arg) => arg === "manifest" || arg === "check") ?? "check";
 if (mode === "manifest") {
   writeManifest();
   process.exit(0);
@@ -197,5 +198,5 @@ if (mode === "manifest") {
 if (mode === "check") {
   process.exit(check());
 }
-console.error(`fleet-ui: unknown mode "${mode}" (use check or manifest)`);
+console.error(`fleet-ui: unknown mode in "${args.join(" ")}" (use check or manifest)`);
 process.exit(2);
