@@ -190,7 +190,8 @@ function check() {
 }
 
 const args = process.argv.slice(2);
-const mode = args.find((arg) => arg === "manifest" || arg === "check") ?? "check";
+// `npm run check:ui -- manifest` arrives as ["check", "manifest"], so manifest wins.
+const mode = args.includes("manifest") ? "manifest" : "check";
 if (mode === "manifest") {
   writeManifest();
   process.exit(0);
