@@ -482,8 +482,8 @@
         "react-router-dom"
       ],
       "registryDependencies": [
-        "theme-switcher",
-        "app-dialog"
+        "@metro/theme-switcher",
+        "@metro/app-dialog"
       ],
       "files": [
         {

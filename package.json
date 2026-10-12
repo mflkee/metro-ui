@@ -5,7 +5,7 @@
   "type": "module",
   "description": "Shared shadcn/ui design system (registry) for the metro* services",
   "scripts": {
-    "build": "shadcn build",
+    "build": "shadcn build && node scripts/check-registry.mjs",
     "view": "shadcn view"
   },
   "devDependencies": {
