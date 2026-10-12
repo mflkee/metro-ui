@@ -1,7 +1,7 @@
 # account-console Specification
 
 ## Purpose
-Defines the owner's account console (the metroAccounts front end) in terms of the
+Defines the owner's account console (the metroAuth front end) in terms of the
 shared design system, so managing accounts looks like the rest of the fleet.
 
 ## Requirements

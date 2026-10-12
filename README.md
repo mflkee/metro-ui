@@ -1,7 +1,7 @@
 # metro-ui
 
 Единая дизайн-система сервисов `metro*` (metroLog, metroGen, metroCheck,
-metroAccounts) в виде **[shadcn-реестра](https://ui.shadcn.com/docs/registry)**.
+metroAuth) в виде **[shadcn-реестра](https://ui.shadcn.com/docs/registry)**.
 
 Это **источник правды по внешнему виду**: токены и темы, каркас приложения
 (шелл), переключатель темы и примитивы. Сервисы не заводят свой цвет, свой
