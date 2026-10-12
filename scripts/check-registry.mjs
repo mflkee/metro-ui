@@ -23,10 +23,11 @@ for (const item of registry.items) {
     if (!names.has(dep)) {
       continue; // a shadcn item (badge, card, …) or an external address
     }
-    if (!dep.startsWith("@")) {
+    if (!dep.startsWith("@") && !dep.startsWith("http")) {
       problems.push(
-        `${item.name}: registryDependency "${dep}" names an item of this registry — write "@metro/${dep}", ` +
-          "otherwise the CLI looks for it on ui.shadcn.com",
+        `${item.name}: registryDependency "${dep}" names an item of this registry — write the published URL ` +
+          `(https://raw.githubusercontent.com/mflkee/metro-ui/main/public/r/${dep}.json) or "@metro/${dep}"; ` +
+          "a bare name is looked up on ui.shadcn.com",
       );
     }
   }
