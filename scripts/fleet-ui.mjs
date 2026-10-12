@@ -160,8 +160,10 @@ function check() {
   const dockerfile = path.join(root, "Dockerfile");
   if (existsSync(dockerfile)) {
     const text = readFileSync(dockerfile, "utf8");
-    const selective = /^COPY\s+frontend\/(?!\.\/)/m.test(text) || /^COPY\s+(?!\.\s)/m.test(text);
-    if (selective) {
+    // `COPY frontend/ ./` and `COPY . .` bring the whole tree along; anything else is a
+    // list that can forget a file.
+    const copiesEverything = /^COPY\s+(?:frontend\/|\.\/?)\s+\.\/?\s*$/m.test(text);
+    if (!copiesEverything) {
       for (const needed of ["scripts", "fleet-ui.manifest.json"]) {
         if (!text.includes(needed)) {
           problems.push(
