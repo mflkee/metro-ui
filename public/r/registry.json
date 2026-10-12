@@ -432,6 +432,19 @@
       ]
     },
     {
+      "name": "settings-section",
+      "type": "registry:component",
+      "title": "Settings section",
+      "description": "The fleet settings section: a card whose header is a disclosure control.",
+      "files": [
+        {
+          "path": "registry/settings-section/settings-section.tsx",
+          "type": "registry:component",
+          "target": "@components/ui/settings-section.tsx"
+        }
+      ]
+    },
+    {
       "name": "page-header",
       "type": "registry:component",
       "title": "Page header",
@@ -457,6 +470,26 @@
           "path": "registry/app-shell/app-shell.tsx",
           "type": "registry:block",
           "target": "@components/app-shell.tsx"
+        }
+      ]
+    },
+    {
+      "name": "account-menu",
+      "type": "registry:component",
+      "title": "Account menu",
+      "description": "The fleet account block of the top bar: theme picker, profile link and the account dialog with the identity and the exit.",
+      "dependencies": [
+        "react-router-dom"
+      ],
+      "registryDependencies": [
+        "theme-switcher",
+        "app-dialog"
+      ],
+      "files": [
+        {
+          "path": "registry/account-menu/account-menu.tsx",
+          "type": "registry:component",
+          "target": "@components/account-menu.tsx"
         }
       ]
     }

@@ -1,0 +1,15 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "settings-section",
+  "title": "Settings section",
+  "description": "The fleet settings section: a card whose header is a disclosure control.",
+  "files": [
+    {
+      "path": "registry/settings-section/settings-section.tsx",
+      "content": "import type { ReactNode } from \"react\"\n\n/**\n * The fleet settings section: a card whose header is a disclosure control.\n *\n * metroLog's settings page is a list of these (folders, the dashboard, presets, themes,\n * notifications) and the other services grew a flat card of their own instead, so the two\n * settings screens read differently. The chevron and the collapsed row are the pattern.\n */\nexport function SettingsSection({\n  title,\n  description,\n  expanded,\n  onToggle,\n  children,\n}: {\n  title: string\n  description: string\n  expanded: boolean\n  onToggle: () => void\n  children: ReactNode\n}) {\n  return (\n    <section className=\"tone-child overflow-hidden rounded-3xl border border-line shadow-panel\">\n      <button\n        aria-expanded={expanded}\n        className=\"flex w-full items-center justify-between gap-4 px-5 py-4 text-left transition hover:bg-black/5\"\n        type=\"button\"\n        onClick={onToggle}\n      >\n        <div className=\"min-w-0\">\n          <h3 className=\"text-base font-semibold text-ink\">{title}</h3>\n          <p className=\"mt-1 max-w-[64ch] text-sm text-steel\">{description}</p>\n        </div>\n        <svg\n          className={[\n            \"h-5 w-5 shrink-0 text-steel transition-transform\",\n            expanded ? \"rotate-180\" : \"\",\n          ].join(\" \")}\n          fill=\"none\"\n          stroke=\"currentColor\"\n          strokeWidth=\"1.9\"\n          viewBox=\"0 0 24 24\"\n        >\n          <path d=\"m19.5 9-7.5 7.5L4.5 9\" strokeLinecap=\"round\" strokeLinejoin=\"round\" />\n        </svg>\n      </button>\n      {expanded ? <div className=\"space-y-4 border-t border-line px-5 py-4\">{children}</div> : null}\n    </section>\n  )\n}\n",
+      "type": "registry:component",
+      "target": "@components/ui/settings-section.tsx"
+    }
+  ],
+  "type": "registry:component"
+}
