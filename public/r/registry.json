@@ -313,6 +313,19 @@
       ]
     },
     {
+      "name": "file-input",
+      "type": "registry:component",
+      "title": "File input",
+      "description": "The fleet file field: a paperclip button and the chosen file's name, instead of the browser's own control.",
+      "files": [
+        {
+          "path": "registry/file-input/file-input.tsx",
+          "type": "registry:component",
+          "target": "@components/ui/file-input.tsx"
+        }
+      ]
+    },
+    {
       "name": "time-input",
       "type": "registry:component",
       "title": "Time input",

@@ -1,0 +1,15 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "file-input",
+  "title": "File input",
+  "description": "The fleet file field: a paperclip button and the chosen file's name, instead of the browser's own control.",
+  "files": [
+    {
+      "path": "registry/file-input/file-input.tsx",
+      "content": "import { type ChangeEventHandler, type InputHTMLAttributes } from \"react\"\n\ntype FileInputProps = Omit<\n  InputHTMLAttributes<HTMLInputElement>,\n  \"className\" | \"onChange\" | \"type\" | \"value\"\n> & {\n  /** The chosen file's name — the caller owns the file, the field only shows it. */\n  fileName?: string | null\n  /** What stands in for the name before anything is chosen. */\n  placeholder?: string\n  className?: string\n  onChange: ChangeEventHandler<HTMLInputElement>\n}\n\n/**\n * The fleet file field: a paperclip button and the chosen file's name.\n *\n * A bare `<input type=\"file\">` is drawn by the browser — the button lands wherever the\n * browser puts it (in a narrow grid cell it used to sink to the bottom of the field),\n * and it is the one control whose look we cannot reach. Here the input is hidden and a\n * label stands in for it, so the control is the fleet's own button.\n */\nexport function FileInput({\n  fileName,\n  placeholder = \"Файл не выбран\",\n  className,\n  onChange,\n  ...rest\n}: FileInputProps) {\n  return (\n    <label className={[\"flex min-w-0 items-center gap-2\", className ?? \"\"].join(\" \").trim()}>\n      <input {...rest} className=\"sr-only\" type=\"file\" onChange={onChange} />\n      <span className=\"btn-secondary btn-sm shrink-0\">\n        <svg aria-hidden=\"true\" className=\"h-4 w-4\" fill=\"none\" viewBox=\"0 0 24 24\">\n          <path\n            d=\"M16.5 6.75 8.4 14.85a2.25 2.25 0 1 0 3.18 3.18l8.1-8.1a4.5 4.5 0 0 0-6.36-6.36l-8.1 8.1a6.75 6.75 0 0 0 9.54 9.54l6.36-6.36\"\n            stroke=\"currentColor\"\n            strokeLinecap=\"round\"\n            strokeLinejoin=\"round\"\n            strokeWidth=\"1.6\"\n          />\n        </svg>\n        Выбрать файл\n      </span>\n      <span className=\"min-w-0 truncate text-sm text-steel\" title={fileName ?? undefined}>\n        {fileName || placeholder}\n      </span>\n    </label>\n  )\n}\n",
+      "type": "registry:component",
+      "target": "@components/ui/file-input.tsx"
+    }
+  ],
+  "type": "registry:component"
+}
