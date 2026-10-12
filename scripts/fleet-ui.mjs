@@ -34,6 +34,7 @@ const VENDORED = [
   "src/lib/numericInput.ts",
   "src/components/app-shell.tsx",
   "src/components/theme-switcher.tsx",
+  "src/components/account-menu.tsx",
   "src/components/version-badge.tsx",
   "src/components/date-input.tsx",
   "src/components/time-input.tsx",
